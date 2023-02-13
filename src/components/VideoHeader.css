@@ -4,7 +4,8 @@
     align-items: center;
     position: absolute;
     width: 100%;
-    color: white;
+    top: 0%;
+    /* color: white; */
 }
 
 .videoHeader > * {
