@@ -1,13 +1,19 @@
 import React, { useState, useEffect} from 'react';
+import { useParams } from "react-router-dom";
 import './App.css';
 import VideoCard from './components/VideoCard';
 import { db }from './firebase';
 
 function App() {
   const [videos, setVideos] = useState([]);
+  const { id  } = useParams();
   useEffect(() => {
+
     db.collection('videos').onSnapshot(snapshot => {
-      setVideos(snapshot.docs.map(doc => doc.data()))
+      setVideos(snapshot.docs.map(doc => ({
+        id: doc.id,
+        video: doc.data()
+      })))
     })
   }, [videos])
   return (
@@ -17,8 +23,9 @@ function App() {
       <h1>Shorts</h1>
     </div>
     <div className="app__videos">
-      {videos.map(({url, channel, avatarSrc, song, likes, shares}) => (
+      {videos.map(({url, channel, avatarSrc, song, likes, shares})  => (
         <VideoCard
+        key={id}
         url={url}
         channel={channel}
         avatarSrc={avatarSrc}
