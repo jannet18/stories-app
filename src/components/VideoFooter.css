@@ -1,4 +1,4 @@
-/* .videoFooter__text{
+.videoFooter__text{
     position: absolute;
     bottom: 0;
     color: white;
@@ -12,7 +12,7 @@
     .videoFooter__text > h3 > button {
     color: white;
     font-weight: 900;text-transform: inherit;
-    } */
+    }
     .videoFooter{
         position: relative;
         bottom: 100px;

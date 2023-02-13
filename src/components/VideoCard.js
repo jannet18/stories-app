@@ -20,7 +20,7 @@ const VideoCard = ({url, channel, likes, shares, avatarSrc, song}) => {
   return (
     <div className="videoCard">
         <VideoHeader/>
-        <video width="100" height="100" controls={true}
+        <video width="" height="" controls={true}
         src={url}
         className="videoCard__player"
         alt="Short Video App"
