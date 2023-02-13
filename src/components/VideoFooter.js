@@ -2,49 +2,35 @@ import React from "react";
 import "./VideoFooter.css";
 import { Avatar } from "@mui/material";
 import { Button } from "@mui/material";
-import Ticker from "react-ticker";
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ModeCommentIcon from '@mui/icons-material/ModeComment';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
- import SendIcon from '@mui/icons-material/Send';
+import { Favorite, Comment, Send } from "@material-ui/icons";
+
 
 function VideoFooter({ channel, avatarSrc, song, likes, shares }) {
   return (
-    <div className="videoFooter">
-      <div className="videoFooter__text">
+    <div className="video-footer">
+      <div className="video-text">
         <Avatar alt="/" src={avatarSrc} />
 
         <h3>
-          {channel} . <Button variant="contained">Follow</Button>
+          {channel} . ({song})
+          <Button variant="contained">
+            <h4 style={{color: "white"}}>Follow</h4></Button>
         </h3>
       </div>
-      <div className="videoFooter__ticker">
-        <MusicNoteIcon className="videoFooter__icon" />
-        <Ticker mode="smooth">
-          {({ index }) => (
-            <>
-              <h1>{song}</h1>
-            </>
-          )}
-        </Ticker>
-      </div>
-      <div className="videoFooter__actions">
-        <div className="videoFooter__actionsLeft">
-          <FavoriteIcon fontSize="large" />
-          <ModeCommentIcon fontSize="large" />
-          <SendIcon fontSize="large" />
-          <MoreHorizIcon fontSize="large" />
+      <div className="footer-buttons">
+        <div className="flex-box">
+          <Favorite />
+          {likes}
         </div>
-        <div className="videoFooter__actionsRight">
-          <div className="videoFooter__stat">
-            <FavoriteIcon />
-            <p>{likes}</p>
-          </div>
-          <div className="videoFooter__stat">
-            <ModeCommentIcon />
-            <p>{shares}</p>
-          </div>
+        {/*  */}
+        <div className="flex-box">
+          <Comment />
+          {comment}
+        </div>
+        {/*  */}
+        <div className="flex-box">
+          <Send />
+          {shares}
         </div>
       </div>
     </div>

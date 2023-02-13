@@ -19,7 +19,8 @@ function App() {
   return (
     <div className="app">
     <div className="app__top">
-    {/* <img src="logo1.png" alt="App Logo" className='app__logo'/> */}
+      
+    <img src="instagram32.png" alt="App Logo" className='app__logo'/>
       <h1>Shorts</h1>
     </div>
     <div className="app__videos">
